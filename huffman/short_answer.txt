@@ -1,0 +1,39 @@
+Before submitting this file, make sure that there are no more TODO
+values left in the file (besides the one in this introduction of course).
+
+Warmup
+------
+Q1: Decode the character(s) from the bit sequence `0101100011`
+A1: MOONS
+
+Q2: Encode the string "SONS" into its bit sequence.
+A2: 011100011
+
+Q3: Give the flattened sequences for the encoding tree that you used for Questions 1 and 2.
+A3: 1101000
+
+Q4: Cover up the example trees and confirm that you can correctly rebuild the tree from its flattened sequences. What process did you go through to convince yourself that you could properly rebuild the tree from the two flattened sequences?
+A4: given bits, its simple. where there are 0's, or leaf nodes, insert chars in order from left to right, top to bottom. Otherwise, the one is a parent node
+
+Q5. Show an optimal Huffman coding tree for the input "BOOKKEEPER".
+
+A5:                      *
+                    /         \
+                   *           *
+                /     \      /   \
+               *       *    K     E
+             /  \    /   \
+            B    P  R     O
+
+Q6. A node in a Huffman coding tree has two non-null children or zero. Why is not possible for a node to have just one non-null child?
+A6: Because of the efficiency of creating a Huffman tree-- growing trees in pairs, one of these pairs can either be a leaf or a parent.
+That is, a node will always have a sibling (either a leaf or a parent sibling) leaves have two null children(or in other words, no children)
+and a parent will always have two children because of the way the tree is manifested.
+
+Q7. Describe the difference in shape of a Huffman coding tree that will lead to significant savings for compression versus
+one that will achieve little to no compression.
+A7: one that balances the siblings and prioritizes important data/chars closer to the root. An inefficient Huffman Tree for example
+would be one that does not optimize both dimensions and has excessive depth. However, the tree is shaped based on the data frequency,
+and relevance to compression. A tall and narrow tree may not seem optimal for short words, but for big data with a high mode and low
+variability would be optimal. In conclusion, the shape is tailored to the data. Assuming the building process is correct, the shape cannot
+be assessed without understanding the data.

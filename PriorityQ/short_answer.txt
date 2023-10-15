@@ -1,0 +1,87 @@
+Before submitting this file, make sure that there are no more TODO
+values left in the file (besides the one in this introduction of course).
+
+Warmup and Debugging Exercise
+-----------------------------
+Q1: How do the values of the member variables of `allBalls[0]` change from iteration to iteration? Specifically, what happens to the values of `id`, `x`, and `y`?
+A1: After iterative loops, the values of x and y change according to the vx and vy velocities. The id value remains the same.
+
+Q2: What is the pattern to how the values of the member variables of the stuck ball change from iteration to iteration?
+A2: The x and y values remain the same and velocities sum to 0
+
+Q3: After placing the stuck ball at (0, 0), does it move normally from there or does it stay stuck?
+A3: Yes, it moves as it should after reseting it's coordinates
+
+Q4: On your system, what is the observed consequence of each of the three errors?
+A4: in testcase1 tries to assign string n to the index[0] name and dereferences nullptr
+testcase2: no errors were raised even though the test attempts to access the removed index
+testcase3: test tries to deallocate the same memory address twice and gets stuck at that second attempt.
+testcase4: uses improper delete method
+
+
+Sorted Array Priority Queue
+---------------------------
+Q5: Give the results from your time trials and explain how is supports your Big O prediction for enqueue and dequeue.
+A5: to fill and empty: 1.628 secs
+    to fill: 2.033
+    to empty: 0 secs
+    This was a bit faster than expected, but to empty I predicted that it would be incredibly efficient.
+
+Q6: If the PQSortedArray stored the elements in order of lowest-to-highest priority value instead of highest-to-lowest,
+what impact would this have on the Big O runtimes of enqueue and dequeue?
+A6: functions would have to be re-written, but peek() would loose its optimal bool checking value,
+    and extracting the first item would require expensive re-ordering of all elements left of said element
+
+Priority Queue Client Usage
+---------------------------
+Q7: Given the runtime of PQSortedArray enqueue/dequeue, what will be the runtime of pqSort? Run some timing trials to confirm your prediction, and include the data you collected in your final answer.
+A7: I predict that the runtime will be O(n). Conclusion: it took 1.4 seconds to go through 1.6 million size stream, and was O(n)
+
+
+Q8: Given the runtime of PQSortedArray enqueue/dequeue, what will be the runtime of topK? Run some timing trials to confirm your prediction, and include the data you collected in your final answer.
+A8: I think that topK will be O(log n), so for the same data, it will have a significantly less time.
+
+Heap Priority Queue
+-------------------
+Q9: Draw the binary heap formed by inserting the specified nine DataPoints into an empty binary heap.
+Specifically, insert those data points in the other that's shown below. You only need to show your final answer,
+not your intermediate steps. Yes, we know that we're asking you to draw pictures in a text file
+(so here's a useful tool for "drawing" the binary heaps: http://asciiflow.com/).
+A9:
+        T1
+
+     B3            G2
+
+  S6      A5     V9   R4
+
+O8   K7
+
+
+Q10: Draw the binary heap that results after two calls to the `dequeue` operation on the heap you drew in Q9.
+A10:
+
+           G2
+
+    B3            R4
+
+S6      A5      V9   K7
+
+O8
+
+
+Q11: Draw the array representation of the binary heap that you drew in Q10.
+A11:
++-----------------------+
+|G2|B3|R4|S6|A5|V9|K7|O8|
++-----------------------+
+
+
+
+Q12: Run timing trials and provide your results that confirm that pqSort runs in time O(NlogN)and topK in O(NlogK).
+A12: Time trials were slightly shorter, and were much faster to complete the stress tests, pqclient topK function contained O(n) operations
+size        time
+200000      0.181
+400000      0.358
+800000      0.699
+1600000     1.412
+

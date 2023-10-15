@@ -1,0 +1,108 @@
+Before submitting this file, make sure that there are no more TODO
+values left in the file (besides the one in this introduction of course).
+
+Perfect Numbers
+---------------
+Q1: How many numbers does the program search through? How many perfect
+numbers does it find? What are these perfect numbers?
+A1: The Program loops through every natural number, and every possible
+divisor of each natural number. As the parameter argument increases,
+the time needed to calculate every value increases as well,
+and takes quite a while to search for the perfect numbers. With n < 160000,
+there are four perfect numbers: 6, 28, 496, 8128. The next perfect number
+is much higher than 160,000 so the algorithm must be more efficient.
+
+Q2: Search Size and Runtime for Exhaustive Algorithm
+A2:
+Search Size: 20000 	Runtime: 1.587
+Search Size: 40000 	Runtime: 6.097
+Search Size: 80000	Runtime: 23.982
+Search Size: 160000	Runtime: 94.829
+Search Size: 320000	Runtime: 376.623
+Search Size: 640000	Runtime: 2689.45
+
+(optional) Plot these values on a graph of runtime vs. Search size and
+see if you can find a trend in the graph.
+
+
+Q3: Does it take the same amount of work to evaluate the isPerfect algorithm
+on the number 10 as it does on the number 1000? Why or why not? Does it 
+take the same amount of work for the findPerfects algorithm to search
+the range of numbers from 1-1000 as it does to search the numbers from 
+1000-2000? Why or why not?
+A3: larger number ranges have more divisors so search through, store, and sum.
+larger numbers can be arraged in a larger variety of configurations of rows and columns
+
+
+Q4: Make a prediction of how long it would take the exhaustive algorithm
+to reach the 5th perfect number.
+A4: 300,000,000,000 seconds based on the trend predictions
+
+
+Q5: Introduce a bug into the divisorSum function. Do any of the tests still
+pass even with this broken function? Why or why not?
+A5: 2 of the 6 tests passed, with just a slightly different function, some of the expected
+    values are the same. However, the majority of tests failed and even one failed test is
+    an unacceptable bug.
+
+
+Q6: Can the test framework detect that the test case is "bogus" in the sense
+that the premise of the test case itself is off-base?
+A6: It can so much as the test framework sets the definite answers and non-answers.
+    the bogus test case bug will distort the expected answers, so I suppose it does notice
+    the off base results in the same way it would detect an accidental "bogus" case of bug
+
+
+Q7: Describe your testing strategy to determine that smarterSum was working
+as expected.
+A7: I wanted to make sure the function worked generally before fine tuning the special cases. So I started testing small numbers
+    and then moved on numbers with a square root like 25.
+
+
+Q8: Search Size and Runtime for Smarter Search
+A8:
+Search Size: 20000 	Runtime: 0
+Search Size: 40000 	Runtime: 0
+Search Size: 80000	Runtime: 0
+Search Size: 160000	Runtime: 0
+Search Size: 320000	Runtime: 0
+Search Size: 640000	Runtime: 0
+
+(optional) Plot these values on a graph of runtime vs. search size and
+see if you can find a trend in the graph. I used desmos but didn't know how to include the graph
+
+
+Q9: How long will the optimized code take to reach the fifth perfect number?
+A9: the runtime tests did not include miliseconds, but I would predict Runtime: < 5 seconds
+
+
+Q10: What test cases did you use to verify that your new function works correctly?
+Please give a brief description of your testing strategy.
+A10: I composed different tests to find perfect numbers, including 33550336, non perfect numbers
+    odd/negative numbers, and thorough tests on the isPrime function before testing values for the Euclid function
+
+
+Soundex
+-------
+Q11: What is the Soundex code for "Bowman"? What is the Soundex code for your own surname?
+A11: Bowman = B550; Nelson = N425
+
+
+Q12: Please describe your general decomposition strategy for implementing
+the Soundex code generation algorithm.
+A12: I broke the seven steps down as follows:
+    #1 would be the removeNonLetters function, which strips the string to only Letters
+    #2,3 & 5 are done through checkUpper function which makes all characters uppercase,
+        saves the first letter, and encodes the string with the first Letter in the code
+    #4 coaleseAjacent function simplifies the code
+    #5 noGooseEgg takes out zeros from the codename
+    #6 finally formats the code to length 4
+    Finally all these functions are implemented into the soundex function itself.
+
+
+Q13: Think about one or more examples of a class of names that the Soundex system
+might not work well for. Explain what this class of names is and why the system might
+incorrectly group them or mis-categorize one of the names.
+A13: any name from especially non English origin, that pronounce letters differently,
+    in particular when names require special characters. such as accent marks, apostrophes, capitals
+
